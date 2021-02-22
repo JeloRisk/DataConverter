@@ -11,74 +11,78 @@
 </head>
 
 <body>
-
+  <header>
+    <a href="#" class="logo">ConvertMe<span>>></span></a>
+    <div class="menuToggle" onclick="toggleMenu();"></div>
+  </header>
   <section class="slide1">
-    <div id="app">
-      <h3>Data Representation Converter</h3>
-      <div class="cols-3">
-        <input class="field" id="bin" oninput="Convert('bin', 2)" placeholder="binary" spellcheck="false">
-        <a href="https://www.google.com/search?q=what%20is%20binary" target="_blank">
-          <img src="question-light.png" alt="" class="s">
-        </a>
+    <div class="content">
+      <div id="app">
+        <div class="head">
+          <h3>Temperature </h3>
+          <div class="button">
+            <div class="tooltip">
+              <span class="tooltiptext">reset</span>
+              <img class="reset-button" onclick="resetNum()" src="arrows-clockwise-fill.png">
+            </div>
+          </div>
+        </div>
+        <form id="templ-converter">
+          <div class="cols-3">
+            <label class="ds">Celsius</label>
+            <input id="c" type="number" step="any" oninput="CelConverter()" onChange="CelConverter()" class="field"
+              placeholder="10">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Fahrenhiet</label>
+            <input id="f" type="number" step="any" oninput="fahConverter()" onChange="fahConverter()" class="field"
+              placeholder="50">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Kelvin</label>
+            <input id="k" type="number" step="any" oninput="kelConverter()" onChange="kelConverter()" class="field"
+              autocomplete="off" placeholder="283.15">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Rankine</label>
+            <input id="r" type="number" step="any" oninput="machConverter()" onChange="machConverter()" class="field"
+              placeholder="509.67">
+          </div>
+        </form>
       </div>
-      <div class="cols-3">
-        <input class="field" id="oct" oninput="Convert('oct', 8)" placeholder="octal" spellcheck="false">
-        <a href="https://www.google.com/search?q=what%20is%20octal" target="_blank">
-          <img src="question-light.png" alt="" class="s">
-        </a>
-      </div>
-      <div class="cols-3">
-        <input class="field" id="dec" oninput="Convert('dec', 10)" placeholder="decimal" spellcheck="false">
-        <a href="https://www.google.com/search?q=what%20is%20decimal" target="_blank">
-          <img src="question-light.png" alt="" class="s">
-        </a>
-      </div>
-      <div class="cols-3">
-        <input class="field" id="hex" oninput="Convert('hex', 16)" placeholder="hexadecimal" spellcheck="false">
-        <a href="https://www.google.com/search?q=what%20is%20hexadecimal" target="_blank">
-          <img src="question-light.png" alt="" class="s">
-        </a>
+
+      <!-- Data Num -->
+      <div id="app">
+        <div class="head">
+          <h3>DataNumber</h3>
+          <div class="button">
+            <div class="tooltip">
+              <span class="tooltiptext">reset</span>
+              <img class="reset-button" onclick="resetTemp()" src="arrows-clockwise-fill.png">
+            </div>
+          </div>
+        </div>
+        <form id="templ-converter">
+          <div class="cols-3">
+            <label class="ds">Binary</label>
+            <input class="field" id="bin" oninput="Convert('bin', 2)" placeholder="10001111" type="number">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Octal</label>
+            <input class="field" id="oct" oninput="Convert('oct', 8)" placeholder="217" type="number">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Decimal</label>
+            <input class="field" id="dec" oninput="Convert('dec', 10)" placeholder="143" type="number">
+          </div>
+          <div class="cols-3">
+            <label class="ds">Hex</label>
+            <input class="field" id="hex" oninput="Convert('hex', 16)" placeholder="8f">
+          </div>
+        </form>
       </div>
     </div>
   </section>
-
-<script src="Data.js"></script>
-
-<!--   <script type="text/javascript">
-    function id(id) {
-      return document.getElementById(id);
-    }
-
-    function Convert(s, n) {
-      if (parseInt(id(s).value, n)) {
-        if ("bin" != s) {
-          id("bin").value = parseInt(id(s).value, n).toString(2)
-        }
-        if ("oct" != s) {
-          id("oct").value = parseInt(id(s).value, n).toString(8)
-        }
-        if ("dec" != s) {
-          id("dec").value = parseInt(id(s).value, n).toString(10)
-        }
-        if ("hex" != s) {
-          id("hex").value = parseInt(id(s).value, n).toString(16)
-        }
-      } else {
-        if ("bin" != s) {
-          id("bin").value = ""
-        }
-        if ("oct" != s) {
-          id("oct").value = ""
-        }
-        if ("dec" != s) {
-          id("dec").value = ""
-        }
-        if ("hex" != s) {
-          id("hex").value = ""
-        }
-      }
-    }
-  </script> -->
 </body>
 
 </html>
@@ -88,50 +92,3 @@
 
 
 
-<!-- <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h1 class="display-4 text-center mb-3">Weight Converter</h1>
-        <form>
-          <div class="form-group">
-            <input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
-          </div>
-        </form>
-        <div id="output">
-          <div class="card card-primary mb-2">
-            <div class="card-block">
-              <h4>Grams:</h4>
-              <div id="gramsOutput"></div>
-            </div>
-          </div>
-
-          <div class="card card-success mb-2">
-            <div class="card-block">
-              <h4>Kilograms:</h4>
-              <div id="kgOutput"></div>
-            </div>
-          </div>
-
-          <div class="card card-danger mb-2">
-            <div class="card-block">
-              <h4>em:</h4>
-              <div id="ozOutput"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script type="text/javascript">
-    document.getElementById("output").style.visibility = "hidden";
-    document.getElementById("lbsInput").addEventListener("input", function (e) {
-      document.getElementById("output").style.visibility = "visible";
-      let lbs = e.target.value;
-      document.getElementById("gramsOutput").innerHTML = lbs / 0.0022046;
-      document.getElementById("kgOutput").innerHTML = lbs / 2.2046;
-      document.getElementById("ozOutput").innerHTML = lbs * 0.0625;
-    });
-  </script>
-</body> -->
